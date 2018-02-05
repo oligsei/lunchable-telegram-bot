@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "lib": [
+      "ES2015",
+      "ES2015.Promise"
+    ],
+    "target": "ES5",
+    "module": "commonjs"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "./node_modules",
+    "**/*.spec.ts"
+  ]
+}
