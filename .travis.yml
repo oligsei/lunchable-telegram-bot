@@ -6,10 +6,14 @@ cache:
   - node_modules
 before_deploy:
 - npm run build
+- cd dist
 deploy:
+  skip_cleanup: true
   provider: lambda
   function_name: "dinnerBot"
   region: "eu-central-1"
   role: "arn:aws:iam::206421054703:role/travis_deploy"
   runtime: "nodejs6.10"
   handler_name: "handler"
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
