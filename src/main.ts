@@ -13,6 +13,8 @@ export const handler: Handler = (event: any, context: Context, callback?: Callba
     const request: ClientRequest = https.request({
         method: 'POST',
         hostname: `${TELEGRAM_API}/sendMessage`
+    }, () => {
+        callback && callback(null, 'Hello world!');
     });
 
     request.write(querystring.stringify({
@@ -22,5 +24,5 @@ export const handler: Handler = (event: any, context: Context, callback?: Callba
 
     //bot.sendMessage(chatId, JSON.stringify(event));
 
-    callback && callback(null, 'Hello world!');
+    //callback && callback(null, 'Hello world!');
 };
