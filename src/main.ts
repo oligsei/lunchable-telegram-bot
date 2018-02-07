@@ -18,7 +18,7 @@ export const handler: Handler = (event: any, context: Context, callback?: Callba
     // respond only to real users
     invokeTelegramAPI('sendMessage', {
         chat_id: chat.id,
-        text: JSON.stringify(event)
+        text: JSON.stringify(payload)
     });
 
     callback && callback();
