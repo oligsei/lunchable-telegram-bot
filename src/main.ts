@@ -3,8 +3,10 @@ import { invokeTelegramAPI } from './invokeTelegramAPI';
 
 export const handler: Handler = (event: any, context: Context, callback?: Callback) => {
     try {
+        const payload: any = JSON.parse(event.body);
+
         invokeTelegramAPI('sendMessage', {
-            chat_id: event.message.chat.id,
+            chat_id: payload.message.chat.id,
             text: JSON.stringify(event)
         });
         callback && callback();
