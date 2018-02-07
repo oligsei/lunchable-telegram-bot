@@ -19,5 +19,5 @@ deploy:
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   on:
     branch: master
-  notifications:
-    webhooks: $WEBHOOK_URL
+notifications:
+  webhooks: $WEBHOOK_URL
