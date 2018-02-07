@@ -10,7 +10,7 @@ before_deploy:
 deploy:
   skip_cleanup: true
   provider: lambda
-  function_name: "dinnerBot"
+  function_name: "lunchable_bot"
   region: "eu-central-1"
   role: "arn:aws:iam::206421054703:role/travis_deploy"
   runtime: "nodejs6.10"

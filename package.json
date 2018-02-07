@@ -1,5 +1,5 @@
 {
-  "name": "dinnerio-telegram-bot",
+  "name": "lunchable-telegram-bot",
   "version": "1.0.0",
   "description": "Что с обедом?",
   "main": "dist/app.js",
@@ -8,21 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oligsei/dinnerio-telegram-bot.git"
+    "url": "git+https://github.com/oligsei/lunchable-telegram-bot.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/oligsei/dinnerio-telegram-bot/issues"
+    "url": "https://github.com/oligsei/lunchable-telegram-bot/issues"
   },
-  "homepage": "https://github.com/oligsei/dinnerio-telegram-bot#readme",
+  "homepage": "https://github.com/oligsei/lunchable-telegram-bot#readme",
   "dependencies": {
     "telebot": "1.2.3"
   },
   "devDependencies": {
     "@types/aws-lambda": "0.0.31",
     "@types/node": "9.4.0",
-    "@types/telebot": "1.2.1",
     "rollup": "0.55.3",
     "rollup-plugin-prepack": "1.0.0",
     "rollup-plugin-typescript": "0.8.1",
