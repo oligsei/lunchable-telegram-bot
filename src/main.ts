@@ -1,18 +1,26 @@
-import { Callback, Context, Handler } from 'aws-lambda';
+import { APIGatewayEvent, Context, ProxyCallback, ProxyHandler } from 'aws-lambda';
 import { invokeTelegramAPI } from './invokeTelegramAPI';
 import { Telegram } from './telegram';
 
-export const handler: Handler = (event: any, context: Context, callback?: Callback) => {
+export const handler: ProxyHandler = (event: APIGatewayEvent, context: Context, callback?: ProxyCallback) => {
+    if (callback === undefined) {
+        throw new Error('No callback! Why, lambda, WHYY??');
+    }
+
+    if (event.body === null) {
+        return callback(new Error('No body'));
+    }
+
     const payload: Telegram.Update = JSON.parse(event.body);
 
     if (!payload.message) {
-        return callback && callback(new Error('No message found'));
+        return callback(new Error('No message found'));
     }
 
     const {from, chat} = payload.message;
 
-    if (!from || from.is_bot) {
-        return callback && callback(new Error('Message is from a bot'));
+    if (from === undefined || from.is_bot) {
+        return callback(new Error('Message is from a bot'));
     }
 
     // respond only to real users
@@ -21,5 +29,5 @@ export const handler: Handler = (event: any, context: Context, callback?: Callba
         text: JSON.stringify(payload)
     });
 
-    callback && callback();
+    return callback();
 };
