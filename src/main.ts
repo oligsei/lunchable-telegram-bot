@@ -18,7 +18,8 @@ export const handler: Handler = (event: any, context: Context, callback?: Callba
             hostname: TELEGRAM_API_HOST,
             path: `${TELEGRAM_API_PATH}/sendMessage`,
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Connection': 'close'
             }
         });
         request.write(querystring.stringify(response));
