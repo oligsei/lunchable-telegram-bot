@@ -3,26 +3,29 @@ import { ClientRequest } from 'http';
 import * as https from 'https';
 import * as querystring from 'querystring';
 
-const TELEGRAM_API: string = `api.telegram.org/bot${process.env.BOT_ACCESS_TOKEN}`;
+const TELEGRAM_API_HOST: string = 'api.telegram.org';
+const TELEGRAM_API_PATH: string = `/bot${process.env.BOT_ACCESS_TOKEN}`;
 
 export const handler: Handler = (event: any, context: Context, callback?: Callback) => {
-    const chatId: any = JSON.parse(event.body).message.chat.id;
+    try {
+        const response: { chat_id: number; text: string } = {
+            chat_id: event.message.chat.id,
+            text: JSON.stringify(event)
+        };
 
-    console.log('main.ts:', event, context, callback);
+        const request: ClientRequest = https.request({
+            method: 'POST',
+            hostname: TELEGRAM_API_HOST,
+            path: `${TELEGRAM_API_PATH}/sendMessage`,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        });
+        request.write(querystring.stringify(response));
+        request.end();
 
-    const request: ClientRequest = https.request({
-        method: 'POST',
-        hostname: `${TELEGRAM_API}/sendMessage`
-    }, () => {
-        callback && callback(null, 'Hello world!');
-    });
-
-    request.write(querystring.stringify({
-        chatId,
-        text: 'Hello world'
-    }));
-
-    //bot.sendMessage(chatId, JSON.stringify(event));
-
-    //callback && callback(null, 'Hello world!');
+        callback && callback();
+    } catch (e) {
+        callback && callback(e);
+    }
 };
