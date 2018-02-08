@@ -2,6 +2,11 @@
   "transform": {
     "^.+\\.ts$": "ts-jest"
   },
+  "globals": {
+    "ts-jest": {
+      "tsConfigFile": "config/tsconfig.test.json"
+    }
+  },
   "testRegex": ".+\\.spec\\.ts?$",
   "moduleFileExtensions": [
     "js",
