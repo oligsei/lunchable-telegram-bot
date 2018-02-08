@@ -14,7 +14,7 @@ export const handler: Handler = (payload: Telegram.Update, context: Context, cal
         return callback();
     }
 
-    const {from, chat} = payload.message;
+    const { from, chat } = payload.message;
 
     if (from === undefined || from.is_bot) {
         console.error('Message is from a bot');

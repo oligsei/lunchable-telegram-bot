@@ -1,0 +1,26 @@
+{
+  "extends": "tslint-config-airbnb",
+  "linterOptions": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "src/**/*.d.ts"
+    ]
+  },
+  "rules": {
+    "max-line-length": [
+      true,
+      150
+    ],
+    "ter-indent": [
+      true,
+      4
+    ],
+    "trailing-comma": false,
+    "object-literal-key-quotes": [
+      true,
+      "consistent-as-needed"
+    ]
+  }
+}
