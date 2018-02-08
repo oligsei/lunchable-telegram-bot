@@ -16,9 +16,6 @@
     "url": "https://github.com/oligsei/lunchable-telegram-bot/issues"
   },
   "homepage": "https://github.com/oligsei/lunchable-telegram-bot#readme",
-  "dependencies": {
-    "telebot": "1.2.3"
-  },
   "devDependencies": {
     "@types/aws-lambda": "0.0.31",
     "@types/node": "9.4.0",
