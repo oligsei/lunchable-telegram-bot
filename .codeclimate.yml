@@ -2,3 +2,7 @@ plugins:
   tslint:
     enabled: true
     config: config/tslint.json
+exclude_patterns:
+  - config/
+  **/*.d.ts
+  **/*.spec.ts
