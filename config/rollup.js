@@ -2,7 +2,7 @@ import rollupPrepackPlugin from 'rollup-plugin-prepack';
 import rollupTypescriptPlugin from 'rollup-plugin-typescript';
 
 import typescript from 'typescript';
-import tsconfig from '../tsconfig.json';
+import tsconfig from './tsconfig.json';
 
 export default {
     input: 'src/main.ts',
