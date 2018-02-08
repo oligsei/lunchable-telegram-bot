@@ -20,5 +20,7 @@ deploy:
   on:
     branch: master
 notifications:
-  webhooks: $WEBHOOK_URL
+  webhooks:
+    urls:
+    - $WEBHOOK_URL
     on_success: always
