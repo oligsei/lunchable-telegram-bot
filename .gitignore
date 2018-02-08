@@ -1,5 +1,6 @@
 .idea/
 *.iml
 
+coverage/
 dist/
 node_modules/

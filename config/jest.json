@@ -8,5 +8,7 @@
     "ts",
     "node"
   ],
-  "rootDir": "../src"
+  "rootDir": "../src",
+  "collectCoverage": true,
+  "coverageDirectory": "../coverage/"
 }
