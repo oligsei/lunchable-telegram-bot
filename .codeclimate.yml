@@ -3,6 +3,6 @@ plugins:
     enabled: true
     config: config/tslint.json
 exclude_patterns:
-  - "config/"
-  - "**/*.d.ts"
-  - "**/*.spec.ts"
+- "config/"
+- "**/*.d.ts"
+- "**/*.spec.ts"
