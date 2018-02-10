@@ -5,7 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "build": "rollup --config config/rollup.js",
-    "lint": "tslint --config config/tslint.json --project '.'",
+    "lint": "tslint --config config/tslint.json --project config/tsconfig.json",
     "test": "jest --config config/jest.json"
   },
   "repository": {
@@ -21,14 +21,15 @@
   "devDependencies": {
     "@types/aws-lambda": "0.0.31",
     "@types/jest": "22.1.2",
-    "@types/node": "9.4.3",
+    "@types/node": "9.4.5",
     "jest": "22.2.2",
-    "rollup": "0.55.4",
+    "rollup": "0.55.5",
     "rollup-plugin-prepack": "1.0.0",
     "rollup-plugin-typescript": "0.8.1",
     "ts-jest": "22.0.3",
     "tslint": "5.9.1",
     "tslint-config-airbnb": "5.6.0",
+    "tslint-sonarts": "1.4.0",
     "typescript": "2.7.1"
   }
 }

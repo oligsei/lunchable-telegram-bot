@@ -11,12 +11,11 @@
     "target": "ES5",
     "module": "commonjs"
   },
-  "rootDir": "..",
   "include": [
-    "src/**/*"
+    "../src/**/*"
   ],
   "exclude": [
-    "../node_modules",
-    "src/**/*.spec.ts"
+    "../../node_modules",
+    "../src/**/*.spec.ts"
   ]
 }

@@ -9,9 +9,9 @@ export const invokeTelegramAPI = (method: string, parameters?: {}): void => {
         hostname: 'api.telegram.org',
         path: `/bot${process.env.BOT_ACCESS_TOKEN}/${method}`,
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Connection': 'close',
             'Content-Length': Buffer.byteLength(payload),
-            'Connection': 'close'
+            'Content-Type': 'application/x-www-form-urlencoded'
         }
     });
     parameters && request.write(payload);
