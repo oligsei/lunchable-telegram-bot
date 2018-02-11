@@ -5,7 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "build": "rollup --config config/rollup.js",
-    "lint": "tslint --config config/tslint.json --project config/tsconfig.json",
+    "pretest": "tslint --config config/tslint.json --project config/tsconfig.json",
     "test": "jest --config config/jest.json"
   },
   "repository": {
