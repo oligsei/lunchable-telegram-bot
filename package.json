@@ -2,7 +2,6 @@
   "name": "lunchable-telegram-bot",
   "version": "1.0.0",
   "description": "Что с обедом?",
-  "main": "dist/app.js",
   "scripts": {
     "build": "rollup --config config/rollup.js",
     "pretest": "tslint --config config/tslint.json --project config/tsconfig.json",
