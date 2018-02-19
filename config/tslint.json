@@ -5,7 +5,8 @@
   ],
   "linterOptions": {
     "include": [
-      "src/**/*.ts"
+      "src/**/*.ts",
+      "test/**/*.ts"
     ],
     "exclude": [
       "src/**/*.d.ts"

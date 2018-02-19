@@ -1,4 +1,4 @@
-import { getLunchPlaceOfTheDay } from './getLunchPlaceOfTheDay';
+import { getLunchPlaceOfTheDay } from '../../src/support/getLunchPlaceOfTheDay';
 
 describe('getLunchPlaceOfTheDay', () => {
     test('should return a constant value', () => {
