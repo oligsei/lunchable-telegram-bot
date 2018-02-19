@@ -1,4 +1,5 @@
 import { Callback, Context, Handler } from 'aws-lambda';
+import { formatQuote } from './support/formatQuote';
 import { getRandomQuote } from './support/getRandomQuote';
 import { invokeTelegramAPI } from './support/invokeTelegramAPI';
 import { isLunchQuestion } from './support/isLunchQuestion';
@@ -24,7 +25,8 @@ export const handler: Handler = (payload: Telegram.Update, context: Context, cal
     if (payload.message.text && isLunchQuestion(payload.message.text)) {
         invokeTelegramAPI('sendMessage', {
             chat_id: chat.id,
-            text: getRandomQuote()
+            text: formatQuote(getRandomQuote()),
+            parse_mode: 'Markdown'
         });
     }
     return callback();
