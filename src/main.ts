@@ -1,5 +1,5 @@
 import { Callback, Context, Handler } from 'aws-lambda';
-import { getLunchPlaceOfTheDay } from './support/getLunchPlaceOfTheDay';
+import { getRandomQuote } from './support/getRandomQuote';
 import { invokeTelegramAPI } from './support/invokeTelegramAPI';
 import { isLunchQuestion } from './support/isLunchQuestion';
 import { Telegram } from './telegram';
@@ -24,7 +24,7 @@ export const handler: Handler = (payload: Telegram.Update, context: Context, cal
     if (payload.message.text && isLunchQuestion(payload.message.text)) {
         invokeTelegramAPI('sendMessage', {
             chat_id: chat.id,
-            text: getLunchPlaceOfTheDay(new Date())
+            text: getRandomQuote()
         });
     }
     return callback();
