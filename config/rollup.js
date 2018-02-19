@@ -1,3 +1,4 @@
+import rollupJSONPlugin from 'rollup-plugin-json';
 import rollupPrepackPlugin from 'rollup-plugin-prepack';
 import rollupTypescriptPlugin from 'rollup-plugin-typescript';
 
@@ -12,6 +13,7 @@ export default {
     },
     external: ['https', 'querystring'],
     plugins: [
+        rollupJSONPlugin(),
         rollupTypescriptPlugin({
             typescript,
             tsconfig
