@@ -1,3 +1,5 @@
+// tslint:disable
+// todo: store quotes somewhere else
 export const quotes = [
     {
         quote: 'Я почти уверен в том, что за секунду до смерти сидящий на диете человек думает: "Чёрт, и почему 17 лет назад я отказался от столовой?"', // tslint:disable-line
@@ -148,3 +150,4 @@ export const quotes = [
         author: 'АНГЛИЙСКАЯ ПОГОВОРКА'
     }
 ];
+// tslint:enable
