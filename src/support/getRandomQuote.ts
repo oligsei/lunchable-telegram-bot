@@ -1,5 +1,5 @@
-import { quotes } from '../quotes';
+import { Quote } from '../quotes';
 
-export const getRandomQuote = (): { author: string; quote: string } => {
+export const getRandomQuote = (quotes: Quote[]) => {
     return quotes[Math.floor(Math.random() * quotes.length)];
 };

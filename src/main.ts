@@ -1,4 +1,5 @@
 import { Callback, Context, Handler } from 'aws-lambda';
+import { quotes } from './quotes';
 import { formatQuote } from './support/formatQuote';
 import { getRandomQuote } from './support/getRandomQuote';
 import { invokeTelegramAPI } from './support/invokeTelegramAPI';
@@ -15,19 +16,22 @@ export const handler: Handler = (payload: Telegram.Update, context: Context, cal
         return callback();
     }
 
-    const { from, chat } = payload.message;
+    const { from } = payload.message;
 
     if (from === undefined || from.is_bot) {
         console.error('Message is from a bot');
         return callback();
     }
 
-    if (payload.message.text && isLunchQuestion(payload.message.text)) {
+    const { text, chat: { id: chat_id } } = payload.message;
+
+    if (text && isLunchQuestion(text)) {
         invokeTelegramAPI('sendMessage', {
-            chat_id: chat.id,
-            text: formatQuote(getRandomQuote()),
+            chat_id,
+            text: formatQuote(getRandomQuote(quotes)),
             parse_mode: 'Markdown'
         });
     }
+
     return callback();
 };

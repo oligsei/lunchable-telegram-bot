@@ -1,23 +1,23 @@
-import rollupJSONPlugin from 'rollup-plugin-json';
-import rollupPrepackPlugin from 'rollup-plugin-prepack';
-import rollupTypescriptPlugin from 'rollup-plugin-typescript';
-
-import typescript from 'typescript';
-import tsconfig from './tsconfig.json';
+import rollupTypescriptPlugin from 'rollup-plugin-typescript2'
+import rollupClosureCompilerPlugin from '@ampproject/rollup-plugin-closure-compiler'
 
 export default {
-    input: 'src/main.ts',
-    output: {
-        file: 'dist/index.js',
-        format: 'cjs'
-    },
-    external: ['https', 'querystring'],
-    plugins: [
-        rollupJSONPlugin(),
-        rollupTypescriptPlugin({
-            typescript,
-            tsconfig
-        }),
-        rollupPrepackPlugin()
-    ]
-};
+  input: 'src/main.ts',
+  output: {
+    file: 'dist/index.js',
+    format: 'cjs'
+  },
+  external: ['https', 'querystring'],
+  plugins: [
+    rollupTypescriptPlugin({
+      clean: true,
+      tsconfig: './config/tsconfig.json',
+      languageOut: 'ECMASCRIPT6',
+      languageIn: 'ECMASCRIPT6'
+    }),
+    rollupClosureCompilerPlugin({
+      env: 'CUSTOM',
+      useTypesForOptimization: true
+    })
+  ]
+}

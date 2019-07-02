@@ -1,13 +1,15 @@
 import { ClientRequest } from 'http';
-import * as https from 'https';
-import * as querystring from 'querystring';
+import { request, RequestOptions } from 'https';
+import { stringify } from 'querystring';
 
-export const invokeTelegramAPI = <T = void>(method: string, parameters?: {}): Promise<T> => {
-    const payload: string = querystring.stringify(parameters);
-    const options: https.RequestOptions = {
+const { BOT_ACCESS_TOKEN } = process.env;
+
+export const invokeTelegramAPI = <T = void>(method: string, parameters?: {}) => {
+    const payload = stringify(parameters);
+    const options: RequestOptions = {
         method: 'POST',
         hostname: 'api.telegram.org',
-        path: `/bot${process.env.BOT_ACCESS_TOKEN}/${method}`,
+        path: `/bot${BOT_ACCESS_TOKEN}/${method}`,
         headers: {
             'Connection': 'close',
             'Content-Length': Buffer.byteLength(payload),
@@ -15,9 +17,9 @@ export const invokeTelegramAPI = <T = void>(method: string, parameters?: {}): Pr
         }
     };
 
-    return new Promise<T>((resolve) => {
-        const request: ClientRequest = https.request(options, () => resolve());
-        parameters && request.write(payload);
-        request.end();
+    return new Promise<T>(resolve => {
+        const clientRequest: ClientRequest = request(options, () => resolve());
+        parameters && clientRequest.write(payload);
+        clientRequest.end();
     });
 };
