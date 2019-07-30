@@ -4,7 +4,7 @@
   "description": "Что с обедом?",
   "scripts": {
     "build": "rollup --config config/rollup.js",
-    "pretest": "tslint --config config/tslint.json --project config/tsconfig.test.json",
+    "?pretest": "tslint --config config/tslint.json --project config/tsconfig.test.json",
     "test": "jest --config config/jest.json"
   },
   "repository": {
@@ -18,18 +18,18 @@
   },
   "homepage": "https://github.com/oligsei/lunchable-telegram-bot#readme",
   "devDependencies": {
-    "@ampproject/rollup-plugin-closure-compiler": "0.9.0",
-    "@types/aws-lambda": "8.10.27",
-    "@types/jest": "24.0.15",
+    "@ampproject/rollup-plugin-closure-compiler": "0.10.0",
+    "@types/aws-lambda": "8.10.31",
+    "@types/jest": "24.0.16",
     "@types/node": "12.0.10",
     "jest": "24.8.0",
-    "rollup": "1.16.4",
+    "rollup": "1.17.0",
     "rollup-plugin-json": "4.0.0",
-    "rollup-plugin-typescript2": "0.21.2",
+    "rollup-plugin-typescript2": "0.22.1",
     "ts-jest": "24.0.2",
     "tslint": "5.18.0",
     "tslint-config-airbnb": "5.11.1",
     "tslint-sonarts": "1.9.0",
-    "typescript": "3.5.2"
+    "typescript": "3.5.3"
   }
 }

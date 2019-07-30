@@ -9,7 +9,8 @@
       "es2015.promise"
     ],
     "target": "es6",
-    "module": "es6"
+    "module": "es6",
+    "esModuleInterop": true
   },
   "include": [
     "../src/**/*"

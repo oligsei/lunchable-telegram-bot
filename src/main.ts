@@ -8,7 +8,7 @@ import { Telegram } from './telegram';
 
 export const handler: Handler = (payload: Telegram.Update, context: Context, callback?: Callback) => {
     if (callback === undefined) {
-        throw new Error('No callback! Why, lambda, WHYY??');
+        throw new Error('No callback');
     }
 
     if (!payload.message) {
@@ -23,11 +23,12 @@ export const handler: Handler = (payload: Telegram.Update, context: Context, cal
         return callback();
     }
 
-    const { text, chat: { id: chat_id } } = payload.message;
+    const { text, chat } = payload.message;
 
     if (text && isLunchQuestion(text)) {
+        // don't care if call fails, not that critical
         invokeTelegramAPI('sendMessage', {
-            chat_id,
+            chat_id: chat.id,
             text: formatQuote(getRandomQuote(quotes)),
             parse_mode: 'Markdown'
         });
